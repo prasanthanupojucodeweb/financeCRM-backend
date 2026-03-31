@@ -15,7 +15,16 @@ connectDB()
 
 const app = express()
 
-app.use(cors())
+app.use(
+  cors({
+    origin: 'https://financecrm-i5c0.onrender.com',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+)
+
+// important for preflight (OPTIONS)
+app.options('*', cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
