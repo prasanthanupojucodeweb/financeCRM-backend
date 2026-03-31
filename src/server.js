@@ -23,8 +23,7 @@ app.use(
   })
 )
 
-// important for preflight (OPTIONS)
-app.options('*', cors())
+
 app.use(express.json())
 
 app.get('/', (req, res) => {
