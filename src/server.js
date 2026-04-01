@@ -15,12 +15,11 @@ connectDB()
 
 const app = express()
 
-app.options(
-  '*',
+app.use(
   cors({
     origin: 'https://financecrm-i5c0.onrender.com',
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    credentials: true,
   })
 )
 
